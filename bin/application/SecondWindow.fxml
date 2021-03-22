@@ -22,7 +22,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <ComboBox fx:id="lv_Ciclos" layoutX="372.0" layoutY="44.0" prefHeight="25.0" prefWidth="203.0" promptText="Selecciona un ciclo" />
+      <ComboBox fx:id="cb_Ciclos" layoutX="372.0" layoutY="44.0" prefHeight="25.0" prefWidth="203.0" promptText="Selecciona un ciclo" />
       <AnchorPane layoutX="42.0" layoutY="105.0" prefHeight="465.0" prefWidth="330.0">
          <children>
             <ListView fx:id="lv_Modulos" layoutX="13.0" layoutY="13.0" prefHeight="440.0" prefWidth="304.0" />

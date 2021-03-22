@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import data_access.GenerateHttpRequest;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -45,45 +46,25 @@ public class MainController implements Initializable {
 		boton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-				newWindow();
-				/*
+				
 				String user = txt_username.getText();
 				String password = txt_password.getText();
 				boolean si = validationAdmins(user, password);
-				System.out.println(si);
 				if (si == true) {
 					newWindow();
-				} else {
-
-				}
-				*/
+				} 
 			}
 		});
 
 	}
 
 	public boolean validationAdmins(String user, String psswd) {
-		System.out.println(user);
-		System.out.println(psswd);
-		String msg = "{\"msg\":\"Authentification failed.\"}";
-		HttpClient client = HttpClient.newHttpClient();
-		HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create("https://appmatriculacioaaj.herokuapp.com/login/admins/" + user + "/" + psswd)).build();
-		HttpResponse<String> response;
-		try {
-			response = client.send(request, HttpResponse.BodyHandlers.ofString());
-			System.out.println(response.body());
-			String httpResponse = response.body().toString();
-			if (httpResponse.equals(msg) == false) {
-				return true;
-			} else {
-				return false;
-			}
-		} catch (ConnectException ce) {
-			System.out.println("Conexion Refused");
-			return loginError(ce);
-		} catch (Exception e) {
-			return loginError(e);
+		String msgFail = "{\"msg\":\"Authentification failed.\"}";
+		String responseBody = GenerateHttpRequest.get("/login/admin/"+user+"/"+psswd);
+		if(responseBody.equals(msgFail)) {
+			return false;
+		}else {
+			return true;
 		}
 	}
 

@@ -7,17 +7,17 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFX11"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/librerias desktop matruclacion/libreriasTestFX/assertj-core-3.11.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/librerias desktop matruclacion/libreriasTestFX/guava-14.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/librerias desktop matruclacion/libreriasTestFX/hamcrest-core-1.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/librerias desktop matruclacion/libreriasTestFX/junit-4.12.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/librerias desktop matruclacion/libreriasTestFX/testfx-core-4.0.15-alpha.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/librerias desktop matruclacion/libreriasTestFX/testfx-junit-4.0.15-alpha.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/librerias desktop matruclacion/libreriasTestFX/testfx-legacy-4.0.8-alpha.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/Jar OK para java http request/commons-codec-1.11.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/Jar OK para java http request/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/Jar OK para java http request/httpclient-4.5.13.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/Jar OK para java http request/httpcore-4.4.13.jar"/>
-	<classpathentry kind="lib" path="C:/Users/alecp/OneDrive/Escritorio/jar json to string/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/libreriasTestFX/libreriasTestFX/assertj-core-3.11.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/libreriasTestFX/libreriasTestFX/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/libreriasTestFX/libreriasTestFX/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/libreriasTestFX/libreriasTestFX/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/libreriasTestFX/libreriasTestFX/testfx-core-4.0.15-alpha.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/libreriasTestFX/libreriasTestFX/testfx-junit-4.0.15-alpha.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/libreriasTestFX/libreriasTestFX/testfx-legacy-4.0.8-alpha.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/Jar OK para java http request/commons-codec-1.11.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/Jar OK para java http request/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/Jar OK para java http request/httpclient-4.5.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/Jar OK para java http request/httpcore-4.4.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/susom/Downloads/jar json to string/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

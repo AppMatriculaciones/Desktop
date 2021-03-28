@@ -1,5 +1,7 @@
 package models;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.json.simple.JSONObject;
@@ -11,12 +13,12 @@ public class Career {
 	String name;
 	int code_educational;
 	int hours;
-	String date_start = "2021-03-03";
-	String date_end = "2021-03-03";
+	Date date_start;
+	Date date_end;
 	String family;
 	Boolean isDual;
 	
-	public Career(String code, String name, int code_educational, int hours, String date_start, String date_end,
+	public Career(String code, String name, int code_educational, int hours, Date date_start, Date date_end,
 			String family, Boolean isDual) {
 		super();
 		this.code = code;
@@ -35,8 +37,8 @@ public class Career {
 		this.name = (String) jsonCareer.get("name");
 		this.code_educational = (int) jsonCareer.get("code_educational");
 		this.hours = (int) jsonCareer.get("hours");
-		this.date_start = (String) jsonCareer.get("date_start");
-		this.date_end = (String) jsonCareer.get("date_end");
+		this.date_start = (Date) jsonCareer.get("date_start");
+		this.date_end = (Date) jsonCareer.get("date_end");
 		this.family = (String) jsonCareer.get("family");
 		this.isDual = (Boolean) jsonCareer.get("isDual");
 	}
@@ -85,19 +87,19 @@ public class Career {
 		this.hours = hours;
 	}
 
-	public String getDate_start() {
+	public Date getDate_start() {
 		return date_start;
 	}
 
-	public void setDate_start(String date_start) {
+	public void setDate_start(Date date_start) {
 		this.date_start = date_start;
 	}
 
-	public String getDate_end() {
+	public Date getDate_end() {
 		return date_end;
 	}
 
-	public void setDate_end(String date_end) {
+	public void setDate_end(Date date_end) {
 		this.date_end = date_end;
 	}
 
@@ -118,7 +120,7 @@ public class Career {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public String toJsonString() {
+	public String toJsonString() throws ParseException {
 
 		String content;
 		JSONObject objectManager = new JSONObject();
@@ -127,8 +129,16 @@ public class Career {
 		objectManager.put("name", name);
 		objectManager.put("code_educational", code_educational);
 		objectManager.put("hours", hours);
-		objectManager.put("date_start", date_start);
-		objectManager.put("date_end", date_end);
+		if(date_start == null) {
+			objectManager.put("date_start", null);
+		}else {
+			objectManager.put("date_start", new SimpleDateFormat("yyyy-MM-dd").format(date_start));
+		}
+		if(date_end == null) {
+			objectManager.put("date_end", null);
+		}else {
+			objectManager.put("date_end", new SimpleDateFormat("yyyy-MM-dd").format(date_end));
+		}
 		objectManager.put("family", family);
 		objectManager.put("isDual", isDual);
 

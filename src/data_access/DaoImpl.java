@@ -1,5 +1,6 @@
 package data_access;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import models.Career;
@@ -12,12 +13,20 @@ public class DaoImpl implements DaoI{
 	@Override
 	public Career createCareer(Career newCareer) {
 		// TODO Auto-generated method stub
-		String body = newCareer.toJsonString();
-		String careerId = GenerateHttpRequest.post("/career/create", body);
-		newCareer.set_id(careerId);
-		System.out.println("Career created: ");
-		System.out.println(newCareer.toString());
-		return newCareer;
+		String body;
+		try {
+			body = newCareer.toJsonString();
+			String careerId = GenerateHttpRequest.post("/career/create", body);
+			newCareer.set_id(careerId);
+			System.out.println("Career created: ");
+			System.out.println(newCareer.toString());
+			return newCareer;
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 
 	@Override

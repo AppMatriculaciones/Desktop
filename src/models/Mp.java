@@ -1,5 +1,6 @@
 package models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.json.simple.JSONObject;
@@ -11,11 +12,11 @@ public class Mp {
 	String name;
 	int duration_min;
 	int duration_max;
-	String date_start = "2021-03-03";
-	String date_end = "2021-03-03";;
+	Date date_start;
+	Date date_end;
 	String career_id;
 	
-	public Mp(String code, String name, int duration_min, int duration_max, String date_start, String date_end, String career_id) {
+	public Mp(String code, String name, int duration_min, int duration_max, Date date_start, Date date_end, String career_id) {
 		super();
 		this.code = code;
 		this.name = name;
@@ -32,8 +33,8 @@ public class Mp {
 		this.name = (String) jsonMP.get("name");
 		this.duration_min = (int) jsonMP.get("duration_min");
 		this.duration_max = (int) jsonMP.get("duration_max");
-		this.date_start = (String) jsonMP.get("date_start");
-		this.date_end = (String) jsonMP.get("date_end");
+		this.date_start = (Date) jsonMP.get("date_start");
+		this.date_end = (Date) jsonMP.get("date_end");
 		this.career_id = (String) jsonMP.get("career_id");
 	}
 	
@@ -81,19 +82,19 @@ public class Mp {
 		this.duration_max = duration_max;
 	}
 
-	public String getDate_start() {
+	public Date getDate_start() {
 		return date_start;
 	}
 
-	public void setDate_start(String date_start) {
+	public void setDate_start(Date date_start) {
 		this.date_start = date_start;
 	}
 
-	public String getDate_end() {
+	public Date getDate_end() {
 		return date_end;
 	}
 
-	public void setDate_end(String date_end) {
+	public void setDate_end(Date date_end) {
 		this.date_end = date_end;
 	}
 
@@ -115,8 +116,16 @@ public class Mp {
 		objectManager.put("name", name);
 		objectManager.put("duration_min", duration_min);
 		objectManager.put("duration_max", duration_max);
-		objectManager.put("date_start", date_start);
-		objectManager.put("date_end", date_end);
+		if(date_start == null) {
+			objectManager.put("date_start", null);
+		}else {
+			objectManager.put("date_start", new SimpleDateFormat("yyyy-MM-dd").format(date_start));
+		}
+		if(date_end == null) {
+			objectManager.put("date_end", null);
+		}else {
+			objectManager.put("date_end", new SimpleDateFormat("yyyy-MM-dd").format(date_end));
+		}
 		objectManager.put("career_id", career_id);
 
 		content = objectManager.toJSONString();

@@ -90,7 +90,7 @@ public class ImportCareers {
 	
 	public void importData() throws ParseException {
 		String line;
-		String[] lineSplit;
+		ArrayList<String> lineSplit;
 		DaoI daoI = new DaoImpl();
 		try {
 			Career newCareer = new Career();
@@ -100,56 +100,60 @@ public class ImportCareers {
 			bf.readLine();
 			while(bf.ready()) {
 				line = bf.readLine();
-				lineSplit = line.split(",");
+				lineSplit = splitCsvLine2(line);
 				
-				if(isCareerSelected(lineSplit[0])) {
-					if(!lineSplit[0].equals(lastCareerRead)) {
-						lastCareerRead = lineSplit[0];
-						newCareer.setCode(lineSplit[0]);
-						newCareer.setName(lineSplit[1]);
-						newCareer.setCode_educational(Integer.valueOf(lineSplit[2]));
-						newCareer.setHours(Integer.valueOf(lineSplit[3]));
-						/*newCareer.setDate_start(new SimpleDateFormat("dd/MM/yyyy").parse(lineSplit[4]));
-						if(!lineSplit[5].equals("")) {
-							newCareer.setDate_end(new SimpleDateFormat("dd/MM/yyyy").parse(lineSplit[5]));
-						}*/
+				if(isCareerSelected(lineSplit.get(0))) {
+					if(!lineSplit.get(0).equals(lastCareerRead)) {
+						lastCareerRead = lineSplit.get(0);
+						newCareer.setCode(lineSplit.get(0));
+						newCareer.setName(lineSplit.get(1));
+						newCareer.setCode_educational(Integer.valueOf(lineSplit.get(2)));
+						newCareer.setHours(Integer.valueOf(lineSplit.get(3)));
+						newCareer.setDate_start(new SimpleDateFormat("dd-MM-yyyy").parse(lineSplit.get(4).replaceAll("/", "-")));
+						if(!lineSplit.get(5).equals("")) {
+							newCareer.setDate_end(new SimpleDateFormat("dd-MM-yyyy").parse(lineSplit.get(5).replaceAll("/", "-")));
+						}else {
+							newCareer.setDate_end(null);
+						}
 						newCareer = daoI.createCareer(newCareer);
 						
 					}
-					if(!lineSplit[6].equals(lastMpRead)) {
-						lastMpRead = lineSplit[6];
-						newMp.setCode(lineSplit[6]);
-						newMp.setName(lineSplit[7]);
-						newMp.setDuration_min(Integer.valueOf(lineSplit[8]));
-						newMp.setDuration_max(Integer.valueOf(lineSplit[9]));
-						/*newMp.setDate_start(new SimpleDateFormat("dd/MM/yyyy").parse(lineSplit[11]));
-						if(!lineSplit[12].equals("")) {
-							newMp.setDate_end(new SimpleDateFormat("dd/MM/yyyy").parse(lineSplit[12]));
-						}*/
+					if(!lineSplit.get(6).equals(lastMpRead)) {
+						lastMpRead = lineSplit.get(6);
+						newMp.setCode(lineSplit.get(6));
+						newMp.setName(lineSplit.get(7));
+						newMp.setDuration_min(Integer.valueOf(lineSplit.get(8)));
+						newMp.setDuration_max(Integer.valueOf(lineSplit.get(9)));
+						newMp.setDate_start(new SimpleDateFormat("dd-MM-yyyy").parse(lineSplit.get(10).replaceAll("/", "-")));
+						if(!lineSplit.get(11).equals("")) {
+							newMp.setDate_end(new SimpleDateFormat("dd-MM-yyyy").parse(lineSplit.get(11).replaceAll("/", "-")));
+						}else {
+							newMp.setDate_end(null);
+						}
 						newMp.setCareer_id(newCareer.get_id());
 						newMp = daoI.createMp(newMp);
 					}
-					if(!lineSplit[12].equals(lastUfRead)) {
-						lastUfRead = lineSplit[12];
-						newUf.setCode(lineSplit[12]);
-						newUf.setName(lineSplit[13]);
-						newUf.setDuration(Integer.valueOf(lineSplit[14]));
-						if(lineSplit[15].equals("N")) {
+					if(!lineSplit.get(12).equals(lastUfRead)) {
+						lastUfRead = lineSplit.get(12);
+						newUf.setCode(lineSplit.get(12));
+						newUf.setName(lineSplit.get(13));
+						newUf.setDuration(Integer.valueOf(lineSplit.get(14)));
+						if(lineSplit.get(15).equals("N")) {
 							newUf.setIsFct(false);
 						}else {
 							newUf.setIsFct(true);
 						}
-						if(lineSplit[16].equals("N")) {
+						if(lineSplit.get(16).equals("N")) {
 							newUf.setIsSintesis(false);
 						}else {
 							newUf.setIsSintesis(true);
 						}
-						if(lineSplit[17].equals("N")) {
+						if(lineSplit.get(17).equals("N")) {
 							newUf.setIsLanguage(false);
 						}else {
 							newUf.setIsLanguage(true);
 						}
-						if(lineSplit[18].equals("N")) {
+						if(lineSplit.get(18).equals("N")) {
 							newUf.setIsProject(false);
 						}else {
 							newUf.setIsProject(true);
@@ -178,5 +182,66 @@ public class ImportCareers {
 			}
 		}
 		return false;
+	}
+	
+	public ArrayList<String> splitCsvLine(String line){
+		ArrayList<String> split = new ArrayList<String>();
+		//ArrayList<String> split2 = new ArrayList<String>();
+		//ArrayList<String> split3 = new ArrayList<String>();
+		
+		String[] splitString1 = line.split(",\"");
+		
+		for(int i = 0; i < splitString1.length; i++) {
+			String[] splitString2 = splitString1[i].split("\",");
+			for(int j = 0; j < splitString2.length; j++) {
+				String[] splitString3 = splitString2[j].split(",");
+				for(int k = 0; k < splitString3.length; k++) {
+					split.add(splitString3[k]);
+				}
+			}
+		}
+		/*for(int i = 0; i < splitString1.length; i++) {
+			split1.add(splitString1[i]);
+		}
+		
+		for(int i = 0; i < split1.size(); i++) {
+			String[] splitString2 = split1.get(i).split("\",");
+			for(int j = 0; j < splitString2.length; j++) {
+				split2.add(splitString2[j]);
+			}
+		}
+		
+		for(int i = 0; i < split2.size(); i++) {
+			String[] splitString3 = split1.get(i).split(",");
+			for(int j = 0; j < splitString3.length; j++) {
+				split2.add(splitString3[j]);
+			}
+		}*/
+		for(int i = 0; i < split.size(); i++) {
+			System.out.println(split.get(i));
+		}
+		
+		return split;
+	}
+	
+	public static ArrayList<String> splitCsvLine2(String line){
+		boolean ignoreComma = true;
+		String column = "";
+		ArrayList<String> columns = new ArrayList<String>();
+		
+		for(int i = 0; i < line.length(); i++) {
+			if(line.charAt(i) == '\"') {
+				ignoreComma = !ignoreComma;
+			}else {
+				if(line.charAt(i) == ',' && ignoreComma == true) {
+					columns.add(column);
+					column = "";
+				}else {
+					column = column+line.charAt(i);
+				}
+			}
+		}
+		columns.add(column);
+		return columns;	
 	}
 }

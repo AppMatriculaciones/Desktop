@@ -28,6 +28,9 @@ public class TestImportCareers {
 		
 		selectedCareersCode.add("CFPM    AG10");
 		selectedCareersCode.add("CFPM    AG11");
+		selectedCareersCode.add("CFPM    AF10");
+		selectedCareersCode.add("CFPS    ICB0");
+		selectedCareersCode.add("CFPS    ICC0");
 		importCareers.setSelectedCareersCode(selectedCareersCode);
 		try {
 			importCareers.importData();

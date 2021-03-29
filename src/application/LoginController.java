@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.net.ConnectException;
 import java.net.URI;
 import java.net.URL;
@@ -12,9 +13,12 @@ import data_access.GenerateHttpRequest;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
@@ -34,14 +38,15 @@ public class LoginController implements Initializable {
 		boton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
+				Main.showLoadingMessage();
 				String user = txt_username.getText();
 				String password = txt_password.getText();
 				boolean si = validationAdmins(user, password);
 				System.out.println(si);
 				if (si == true) {
 					System.out.println("LOGIN CORRECTO");
-					ShowCiclosController showcicloscontroller = new ShowCiclosController();
-					showcicloscontroller.newWindow();
+					Main.closeLoadingMessage();
+					goMainMenu();
 				} else {
 				}
 			}
@@ -68,4 +73,20 @@ public class LoginController implements Initializable {
 		alert.showAndWait();
 		return false;
 	}
+	
+	private void goMainMenu() {
+    	AnchorPane root;
+		try {
+			root = (AnchorPane)FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+			Scene scene = new Scene(root,800,600);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Main.stage.setScene(scene);
+			Main.stage.setTitle("Menu Principal");
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+    }
 }

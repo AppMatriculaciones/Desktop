@@ -68,6 +68,7 @@ public class ImportCareers {
 			bf.readLine();
 			while(bf.ready()) {
 				line = bf.readLine();
+				line = replaceCsvCharacters(line);
 				lineSplit = line.split(",");
 				if(!lineSplit[0].equals(lastCareerRead)) {
 					lastCareerRead = lineSplit[0];
@@ -100,7 +101,8 @@ public class ImportCareers {
 			bf.readLine();
 			while(bf.ready()) {
 				line = bf.readLine();
-				lineSplit = splitCsvLine2(line);
+				line = replaceCsvCharacters(line);
+				lineSplit = splitCsvLine(line);
 				
 				if(isCareerSelected(lineSplit.get(0))) {
 					if(!lineSplit.get(0).equals(lastCareerRead)) {
@@ -184,47 +186,7 @@ public class ImportCareers {
 		return false;
 	}
 	
-	public ArrayList<String> splitCsvLine(String line){
-		ArrayList<String> split = new ArrayList<String>();
-		//ArrayList<String> split2 = new ArrayList<String>();
-		//ArrayList<String> split3 = new ArrayList<String>();
-		
-		String[] splitString1 = line.split(",\"");
-		
-		for(int i = 0; i < splitString1.length; i++) {
-			String[] splitString2 = splitString1[i].split("\",");
-			for(int j = 0; j < splitString2.length; j++) {
-				String[] splitString3 = splitString2[j].split(",");
-				for(int k = 0; k < splitString3.length; k++) {
-					split.add(splitString3[k]);
-				}
-			}
-		}
-		/*for(int i = 0; i < splitString1.length; i++) {
-			split1.add(splitString1[i]);
-		}
-		
-		for(int i = 0; i < split1.size(); i++) {
-			String[] splitString2 = split1.get(i).split("\",");
-			for(int j = 0; j < splitString2.length; j++) {
-				split2.add(splitString2[j]);
-			}
-		}
-		
-		for(int i = 0; i < split2.size(); i++) {
-			String[] splitString3 = split1.get(i).split(",");
-			for(int j = 0; j < splitString3.length; j++) {
-				split2.add(splitString3[j]);
-			}
-		}*/
-		for(int i = 0; i < split.size(); i++) {
-			System.out.println(split.get(i));
-		}
-		
-		return split;
-	}
-	
-	public static ArrayList<String> splitCsvLine2(String line){
+	public static ArrayList<String> splitCsvLine(String line){
 		boolean ignoreComma = true;
 		String column = "";
 		ArrayList<String> columns = new ArrayList<String>();
@@ -243,5 +205,23 @@ public class ImportCareers {
 		}
 		columns.add(column);
 		return columns;	
+	}
+	
+	public String replaceCsvCharacters(String line) {
+		return line.replaceAll("Ã³", "ó")
+				.replaceAll("Ã", "Á")
+				.replaceAll("Ã ", "à")
+				.replaceAll("Á±", "ñ")
+				.replaceAll("Á¡", "á")
+				.replaceAll("Á©", "é")
+				.replaceAll("Á­", "í")
+				.replaceAll("Áº", "ú")
+				.replaceAll("Á‘", "Ñ")
+				.replaceAll("Á“", "Ó")
+				.replaceAll("íº", "ú")
+				.replaceAll("Ã¼", "ü")
+				.replaceAll("Ã²", "ò")
+				.replaceAll("Ã¨", "è")
+				.replaceAll("Â·", "·");
 	}
 }

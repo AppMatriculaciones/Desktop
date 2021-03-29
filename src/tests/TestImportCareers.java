@@ -12,7 +12,7 @@ public class TestImportCareers {
 		// TODO Auto-generated method stub
 		File csv = new File("C:\\Users\\alecp\\Downloads\\Taules_cataleg_FP_18-19-LOE.csv");
 		ImportCareers importCareers = new ImportCareers(csv);
-		/*
+		
 		//Test read careers' code and name
 		importCareers.readCareers();
 		ArrayList<String> careersCode = importCareers.getCareersCode();
@@ -21,8 +21,8 @@ public class TestImportCareers {
 		for(int i = 0; i < careersCode.size(); i++) {
 			System.out.println(careersCode.get(i)+ " "+careersName.get(i));
 		}
-		*/
 		
+		/*
 		//Test import selected careers
 		ArrayList<String> selectedCareersCode = new ArrayList<String>();
 		
@@ -37,7 +37,7 @@ public class TestImportCareers {
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }

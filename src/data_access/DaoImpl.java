@@ -19,7 +19,7 @@ public class DaoImpl implements DaoI{
 			String careerId = GenerateHttpRequest.post("/career/create", body);
 			newCareer.set_id(careerId);
 			System.out.println("Career created: ");
-			System.out.println(newCareer.toString());
+			System.out.println(newCareer.getCode());
 			return newCareer;
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -47,7 +47,7 @@ public class DaoImpl implements DaoI{
 		String mpId = GenerateHttpRequest.post("/mp/create", newMp.toJsonString());
 		newMp.set_id(mpId);
 		System.out.println("Mp created: ");
-		System.out.println(newMp.toString());
+		System.out.println(newMp.getCode());
 		return newMp;
 	}
 
@@ -69,7 +69,7 @@ public class DaoImpl implements DaoI{
 		String ufId = GenerateHttpRequest.post("/uf/create", newUf.toJsonString());
 		newUf.set_id(ufId);
 		System.out.println("Uf created: ");
-		System.out.println(newUf.toString());
+		System.out.println(newUf.getCode());
 		return newUf;
 	}
 

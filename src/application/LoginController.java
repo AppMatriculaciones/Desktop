@@ -33,6 +33,9 @@ public class LoginController implements Initializable {
 	@FXML
 	private TextField txt_password;
 
+	@FXML
+	private Button btnVerCiclos;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		boton.setOnAction(new EventHandler<ActionEvent>() {
@@ -51,15 +54,14 @@ public class LoginController implements Initializable {
 				}
 			}
 		});
-
 	}
 
 	public boolean validationAdmins(String user, String psswd) {
 		String msgFail = "{\"msg\":\"Authentification failed.\"}";
-		String responseBody = GenerateHttpRequest.get("/login/admin/"+user+"/"+psswd);
-		if(responseBody.equals(msgFail)) {
+		String responseBody = GenerateHttpRequest.get("/login/admin/" + user + "/" + psswd);
+		if (responseBody.equals(msgFail)) {
 			return false;
-		}else {
+		} else {
 			return true;
 		}
 	}
@@ -73,20 +75,20 @@ public class LoginController implements Initializable {
 		alert.showAndWait();
 		return false;
 	}
-	
+
 	private void goMainMenu() {
-    	AnchorPane root;
+		AnchorPane root;
 		try {
-			root = (AnchorPane)FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
-			Scene scene = new Scene(root,800,600);
+			root = (AnchorPane) FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+			Scene scene = new Scene(root, 800, 600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Main.stage.setScene(scene);
 			Main.stage.setTitle("Menu Principal");
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-    }
+
+	}
 }

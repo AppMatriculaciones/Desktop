@@ -7,12 +7,9 @@ import models.Career;
 import models.Mp;
 import models.Uf;
 
-
-public class DaoImpl implements DaoI{
-
+public class DaoImpl implements DaoI {
 	@Override
 	public Career createCareer(Career newCareer) {
-		// TODO Auto-generated method stub
 		String body;
 		try {
 			body = newCareer.toJsonString();
@@ -22,22 +19,19 @@ public class DaoImpl implements DaoI{
 			System.out.println(newCareer.getCode());
 			return newCareer;
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
-		
+
 	}
 
 	@Override
 	public Career getCareer(String careerCode) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ArrayList<Career> getCareers() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -75,19 +69,19 @@ public class DaoImpl implements DaoI{
 
 	@Override
 	public Uf getUf(String ufCode) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ArrayList<Uf> getUfsByMp(String mpCode) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ArrayList<Uf> getUfByCareer(String careerCode) {
-		// TODO Auto-generated method stub
+		String ufByCareer = GenerateHttpRequest.get("/ufs/getbycareer/"+careerCode);
+		System.out.println(ufByCareer);
+		//falta parsearlo
 		return null;
 	}
 

@@ -117,8 +117,7 @@ public class ImportCareers {
 						}else {
 							newCareer.setDate_end(null);
 						}
-						newCareer = daoI.createCareer(newCareer);
-						
+						newCareer = daoI.createCareer(newCareer);	
 					}
 					if(!lineSplit.get(6).equals(lastMpRead)) {
 						lastMpRead = lineSplit.get(6);

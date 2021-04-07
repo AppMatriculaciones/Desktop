@@ -6,8 +6,10 @@ import java.util.Date;
 import data_access.CustomDateSerializer;
 import org.json.simple.JSONObject;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+@JsonIgnoreProperties(value = { "_id" })
 public class Career {
 
 	String _id;

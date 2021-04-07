@@ -2,6 +2,9 @@ package models;
 
 import org.json.simple.JSONObject;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "_id" })
 public class Uf {
 
 	String _id;

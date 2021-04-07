@@ -5,10 +5,12 @@ import java.util.Date;
 
 import org.json.simple.JSONObject;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import data_access.CustomDateSerializer;
 
+@JsonIgnoreProperties(value = { "_id" })
 public class Mp {
 
 	String _id;

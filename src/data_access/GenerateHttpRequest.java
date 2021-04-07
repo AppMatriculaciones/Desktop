@@ -15,6 +15,7 @@ public class GenerateHttpRequest {
 	public static String post(String url, String body) {
 		
 		DefaultHttpClient httpClient = new DefaultHttpClient();
+		url = url.replaceAll(" ", "%20");
 		HttpPost httpPost = new HttpPost("http://localhost:5000/"+url);
 		httpPost.setHeader("Content-type", "application/json");
 		try {
@@ -38,6 +39,7 @@ public class GenerateHttpRequest {
 	
 	public static String get(String url) {
 		DefaultHttpClient httpClient = new DefaultHttpClient();
+		url = url.replaceAll(" ", "%20");
 		HttpGet httpGet = new HttpGet("http://localhost:5000/"+url);
 		httpGet.setHeader("Content-type", "application/json");
 		try {

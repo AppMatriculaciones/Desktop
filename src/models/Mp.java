@@ -5,6 +5,10 @@ import java.util.Date;
 
 import org.json.simple.JSONObject;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import data_access.CustomDateSerializer;
+
 public class Mp {
 
 	String _id;
@@ -12,7 +16,9 @@ public class Mp {
 	String name;
 	int duration_min;
 	int duration_max;
+	@JsonSerialize(using = CustomDateSerializer.class)
 	Date date_start;
+	@JsonSerialize(using = CustomDateSerializer.class)
 	Date date_end;
 	String career_id;
 	

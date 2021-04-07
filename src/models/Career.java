@@ -3,8 +3,10 @@ package models;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import data_access.CustomDateSerializer;
 import org.json.simple.JSONObject;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 public class Career {
 
@@ -13,14 +15,17 @@ public class Career {
 	String name;
 	int code_educational;
 	int hours;
+	@JsonSerialize(using = CustomDateSerializer.class)
 	Date date_start;
+	@JsonSerialize(using = CustomDateSerializer.class)
 	Date date_end;
 	String family;
 	Boolean isDual;
 	
-	public Career(String code, String name, int code_educational, int hours, Date date_start, Date date_end,
+	public Career(String _id, String code, String name, int code_educational, int hours, Date date_start, Date date_end,
 			String family, Boolean isDual) {
 		super();
+		this._id = _id;
 		this.code = code;
 		this.name = name;
 		this.code_educational = code_educational;

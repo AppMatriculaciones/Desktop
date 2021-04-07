@@ -3,11 +3,17 @@ package data_access;
 import java.text.ParseException;
 import java.util.ArrayList;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import models.Career;
 import models.Mp;
 import models.Uf;
 
 public class DaoImpl implements DaoI {
+	private static ObjectMapper objectMapper = new ObjectMapper();
 	@Override
 	public Career createCareer(Career newCareer) {
 		String body;
@@ -27,12 +33,15 @@ public class DaoImpl implements DaoI {
 
 	@Override
 	public Career getCareer(String careerCode) {
+		
 		return null;
 	}
 
 	@Override
 	public ArrayList<Career> getCareers() {
-		return null;
+		String stringCareers = GenerateHttpRequest.get("/careers/get");
+		ArrayList<Career> careers = stringToObjectCareers(stringCareers);
+		return careers;
 	}
 
 	@Override
@@ -83,6 +92,51 @@ public class DaoImpl implements DaoI {
 		System.out.println(ufByCareer);
 		//falta parsearlo
 		return null;
+	}
+	
+	public ArrayList<Career> stringToObjectCareers(String stringCareers){
+		ArrayList<String> arrayCareers = stringToArrayString(stringCareers);
+		ArrayList<Career> careers = new ArrayList<Career>();
+		JSONParser parser = new JSONParser(); 
+		for(String stringCareer: arrayCareers) {
+			try {
+				JSONObject jsonCareer = (JSONObject) parser.parse(stringCareer);
+				Career career = new Career(jsonCareer);
+				careers.add(career);
+			} catch (org.json.simple.parser.ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println("Failed to parse string to Json.");
+			}
+			
+		}
+		return careers;
+	}
+	
+	public ArrayList<String> stringToArrayString(String arrayJson){
+		boolean ignoreComma = true;
+		String json = "";
+		ArrayList<String> jsons = new ArrayList<String>();
+		
+		for(int i = 0; i < arrayJson.length(); i++) {
+			if(arrayJson.charAt(i) == '{' || arrayJson.charAt(i) == '}') {
+				ignoreComma = !ignoreComma;
+			}else if(arrayJson.charAt(i) == '[' || arrayJson.charAt(i) == ']'){
+				
+			}
+			else {
+				if(arrayJson.charAt(i) == ',' && ignoreComma == true) {
+					json = "{"+json+"}";
+					jsons.add(json);
+					json = "";
+				}else {
+					json = json+arrayJson.charAt(i);
+				}
+			}
+		}
+		json = "{"+json+"}";
+		jsons.add(json);
+		return jsons;	
 	}
 
 }

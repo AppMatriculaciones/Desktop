@@ -38,7 +38,7 @@ public class GenerateHttpRequest {
 	
 	public static String get(String url) {
 		DefaultHttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet("https://appmatriculacioaaj.herokuapp.com/"+url);
+		HttpGet httpGet = new HttpGet("https://appmatriculacioaaj.herokuapp.com"+url);
 		httpGet.setHeader("Content-type", "application/json");
 		try {
 			httpGet.getRequestLine();

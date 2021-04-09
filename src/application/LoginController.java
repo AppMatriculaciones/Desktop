@@ -51,6 +51,7 @@ public class LoginController implements Initializable {
 					Main.closeLoadingMessage();
 					goMainMenu();
 				} else {
+					Main.closeLoadingMessage();
 				}
 			}
 		});

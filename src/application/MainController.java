@@ -38,10 +38,6 @@ public class MainController implements Initializable {
 	@FXML
 	private TextField txt_password;
 	
-	@FXML
-	private ComboBox<String> cb_Ciclos;
-	ObservableList<String> data = FXCollections.observableArrayList("a","b","c");
-	
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		boton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override

@@ -19,6 +19,9 @@ public class MainMenuController implements Initializable {
 	@FXML
 	private Button btnShowStudents;
 
+	@FXML
+	private Button btnShowCareers;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -40,7 +43,7 @@ public class MainMenuController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@FXML
 	private void goShowStudents() {
 		AnchorPane root;
@@ -50,6 +53,23 @@ public class MainMenuController implements Initializable {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Main.stage.setScene(scene);
 			Main.stage.setTitle("Ver estudiantes");
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	@FXML
+	private void goShowCareers() {
+		AnchorPane root;
+		try {
+			root = (AnchorPane) FXMLLoader.load(getClass().getResource("ShowCareers.fxml"));
+			Scene scene = new Scene(root, 800, 600);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Main.stage.setScene(scene);
+			Main.stage.setTitle("Ver ciclos");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -104,4 +104,11 @@ public class Uf {
 	public void setMp_id(String mp_id) {
 		this.mp_id = mp_id;
 	}
+
+	@Override
+	public String toString() {
+		return "Uf [_id=" + _id + ", code=" + code + ", name=" + name + ", duration=" + duration + ", isProject="
+				+ isProject + ", isSintesis=" + isSintesis + ", isFct=" + isFct + ", isLanguage=" + isLanguage
+				+ ", mp_id=" + mp_id + "]";
+	}
 }

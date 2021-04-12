@@ -99,4 +99,11 @@ public class Mp {
 	public void setCareer_id(String career_id) {
 		this.career_id = career_id;
 	}
+
+	@Override
+	public String toString() {
+		return "Mp [_id=" + _id + ", code=" + code + ", name=" + name + ", duration_min=" + duration_min
+				+ ", duration_max=" + duration_max + ", date_start=" + date_start + ", date_end=" + date_end
+				+ ", career_id=" + career_id + "]";
+	}
 }

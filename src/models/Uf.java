@@ -1,7 +1,5 @@
 package models;
 
-import org.json.simple.JSONObject;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(value = { "_id" })
@@ -28,18 +26,6 @@ public class Uf {
 		this.isFct = isFct;
 		this.isLanguage = isLanguage;
 		this.mp_id = mp_id;
-	}
-	
-	public Uf(JSONObject jsonUf) {
-		super();
-		this.code = (String) jsonUf.get("code");
-		this.name = (String) jsonUf.get("name");
-		this.duration = (int) jsonUf.get("duration");
-		this.isProject = (Boolean) jsonUf.get("isProject");
-		this.isSintesis = (Boolean) jsonUf.get("isSintesis");
-		this.isFct = (Boolean) jsonUf.get("isFct");
-		this.isLanguage = (Boolean) jsonUf.get("isLanguage");
-		this.mp_id = (String) jsonUf.get("mp_id");
 	}
 	
 	public Uf() {
@@ -117,24 +103,5 @@ public class Uf {
 
 	public void setMp_id(String mp_id) {
 		this.mp_id = mp_id;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public String toJsonString() {
-
-		String content;
-		JSONObject objectManager = new JSONObject();
-
-		objectManager.put("code", code);
-		objectManager.put("name", name);
-		objectManager.put("duration", duration);
-		objectManager.put("isProject", isProject);
-		objectManager.put("isSintesis", isSintesis);
-		objectManager.put("isFct", isFct);
-		objectManager.put("isLanguage", isLanguage);
-		objectManager.put("mp_id", mp_id);
-
-		content = objectManager.toJSONString();
-		return content;
 	}
 }

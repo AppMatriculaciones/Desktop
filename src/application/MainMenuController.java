@@ -11,32 +11,51 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-public class MainMenuController implements Initializable{
-	
+public class MainMenuController implements Initializable {
+
 	@FXML
 	private Button btnImportCareers;
-	
+
+	@FXML
+	private Button btnShowStudents;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@FXML
 	private void goImportCareers() {
-    	AnchorPane root;
+		AnchorPane root;
 		try {
-			root = (AnchorPane)FXMLLoader.load(getClass().getResource("ImportCareers.fxml"));
-			Scene scene = new Scene(root,800,600);
+			root = (AnchorPane) FXMLLoader.load(getClass().getResource("ImportCareers.fxml"));
+			Scene scene = new Scene(root, 800, 600);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Main.stage.setScene(scene);
 			Main.stage.setTitle("Importar ciclos");
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-    }
+	}
+	
+	@FXML
+	private void goShowStudents() {
+		AnchorPane root;
+		try {
+			root = (AnchorPane) FXMLLoader.load(getClass().getResource("ShowStudents.fxml"));
+			Scene scene = new Scene(root, 800, 600);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Main.stage.setScene(scene);
+			Main.stage.setTitle("Ver estudiantes");
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
 
 }

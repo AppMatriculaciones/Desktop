@@ -1,9 +1,6 @@
 package models;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import org.json.simple.JSONObject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -33,17 +30,6 @@ public class Mp {
 		this.date_start = date_start;
 		this.date_end = date_end;
 		this.career_id = career_id;
-	}
-	
-	public Mp(JSONObject jsonMP) {
-		super();
-		this.code = (String) jsonMP.get("code");
-		this.name = (String) jsonMP.get("name");
-		this.duration_min = (int) jsonMP.get("duration_min");
-		this.duration_max = (int) jsonMP.get("duration_max");
-		this.date_start = (Date) jsonMP.get("date_start");
-		this.date_end = (Date) jsonMP.get("date_end");
-		this.career_id = (String) jsonMP.get("career_id");
 	}
 	
 	public Mp() {
@@ -112,31 +98,5 @@ public class Mp {
 
 	public void setCareer_id(String career_id) {
 		this.career_id = career_id;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public String toJsonString() {
-
-		String content;
-		JSONObject objectManager = new JSONObject();
-
-		objectManager.put("code", code);
-		objectManager.put("name", name);
-		objectManager.put("duration_min", duration_min);
-		objectManager.put("duration_max", duration_max);
-		if(date_start == null) {
-			objectManager.put("date_start", null);
-		}else {
-			objectManager.put("date_start", new SimpleDateFormat("yyyy-MM-dd").format(date_start));
-		}
-		if(date_end == null) {
-			objectManager.put("date_end", null);
-		}else {
-			objectManager.put("date_end", new SimpleDateFormat("yyyy-MM-dd").format(date_end));
-		}
-		objectManager.put("career_id", career_id);
-
-		content = objectManager.toJSONString();
-		return content;
 	}
 }

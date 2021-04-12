@@ -1,10 +1,7 @@
 package models;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import data_access.CustomDateSerializer;
-import org.json.simple.JSONObject;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -36,18 +33,6 @@ public class Career {
 		this.date_end = date_end;
 		this.family = family;
 		this.isDual = isDual;
-	}
-	
-	public Career(JSONObject jsonCareer) {
-		super();
-		this.code = (String) jsonCareer.get("code");
-		this.name = (String) jsonCareer.get("name");
-		this.code_educational = (int) jsonCareer.get("code_educational");
-		this.hours = (int) jsonCareer.get("hours");
-		this.date_start = (Date) jsonCareer.get("date_start");
-		this.date_end = (Date) jsonCareer.get("date_end");
-		this.family = (String) jsonCareer.get("family");
-		this.isDual = (Boolean) jsonCareer.get("isDual");
 	}
 	
 	public Career() {
@@ -124,32 +109,5 @@ public class Career {
 
 	public void setIsDual(Boolean isDual) {
 		this.isDual = isDual;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public String toJsonString() throws ParseException {
-
-		String content;
-		JSONObject objectManager = new JSONObject();
-
-		objectManager.put("code", code);
-		objectManager.put("name", name);
-		objectManager.put("code_educational", code_educational);
-		objectManager.put("hours", hours);
-		if(date_start == null) {
-			objectManager.put("date_start", null);
-		}else {
-			objectManager.put("date_start", new SimpleDateFormat("yyyy-MM-dd").format(date_start));
-		}
-		if(date_end == null) {
-			objectManager.put("date_end", null);
-		}else {
-			objectManager.put("date_end", new SimpleDateFormat("yyyy-MM-dd").format(date_end));
-		}
-		objectManager.put("family", family);
-		objectManager.put("isDual", isDual);
-
-		content = objectManager.toJSONString();
-		return content;
 	}
 }

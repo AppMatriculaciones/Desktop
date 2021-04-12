@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import models.Career;
 import models.Mp;
+import models.Student;
 import models.Uf;
 
 public interface DaoI {
@@ -27,4 +28,10 @@ public interface DaoI {
 	public ArrayList<Uf> getUfsByMp(String mpCode);
 	
 	public ArrayList<Uf> getUfByCareer(String careerCode);
+	
+	public Student getStudentByDocId(String docId);
+	
+	public ArrayList<Student> getStudentsByCareersCode(String careersCode);
+	
+	public ArrayList<Student> getStudents();
 }

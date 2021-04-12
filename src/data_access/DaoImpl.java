@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import models.Career;
 import models.Mp;
+import models.Student;
 import models.Uf;
 
 public class DaoImpl implements DaoI {
@@ -36,7 +37,7 @@ public class DaoImpl implements DaoI {
 
 	@Override
 	public Career getCareer(String careerCode) {
-		String body = GenerateHttpRequest.get("career/get/"+careerCode);
+		String body = GenerateHttpRequest.get("/career/get/"+careerCode);
 		try {
 			Career career = objectMapper.readValue(body, Career.class);
 			return career;
@@ -54,7 +55,7 @@ public class DaoImpl implements DaoI {
 
 	@Override
 	public ArrayList<Career> getCareers() {
-		String body = GenerateHttpRequest.get("careers/get");
+		String body = GenerateHttpRequest.get("/careers/get");
 		try {
 			ArrayList<Career> careers = (ArrayList<Career>) objectMapper.readValue(body, new TypeReference<List<Career>>() {});
 			return careers;
@@ -186,6 +187,63 @@ public class DaoImpl implements DaoI {
 		try {
 			ArrayList<Uf> ufs = (ArrayList<Uf>) objectMapper.readValue(body, new TypeReference<List<Uf>>() {});
 			return ufs;
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Student getStudentByDocId(String docId) {
+		// TODO Auto-generated method stub
+		String body = GenerateHttpRequest.get("/student/getbydocid/"+docId);
+		try {
+			Student student = objectMapper.readValue(body, Student.class);
+			return student;
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public ArrayList<Student> getStudentsByCareersCode(String careersCode) {
+		// TODO Auto-generated method stub
+		String body = GenerateHttpRequest.get("/students/getbycareers/"+careersCode);
+		try {
+			ArrayList<Student> students = (ArrayList<Student>) objectMapper.readValue(body, new TypeReference<List<Student>>() {});
+			return students;
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public ArrayList<Student> getStudents() {
+		// TODO Auto-generated method stub
+		String body = GenerateHttpRequest.get("/students/get");
+		try {
+			ArrayList<Student> students = (ArrayList<Student>) objectMapper.readValue(body, new TypeReference<List<Student>>() {});
+			return students;
 		} catch (JsonMappingException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error while converting Json to Object.");

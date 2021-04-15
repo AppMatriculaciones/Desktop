@@ -10,7 +10,7 @@ import data_access.CustomDateSerializer;
 
 @JsonIgnoreProperties(value = { "_id" })
 public class Student {
-	
+
 	private String _id;
 	private String name;
 	private String first_surname;
@@ -33,12 +33,13 @@ public class Student {
 	private String languages;
 	private String religion;
 	private String requirements_profile_id;
-	
+	private String studentType;
+
 	public Student(String name, String first_surname, String second_surname, String email, String password,
 			String token, int phone, ArrayList<String> ufs_completed, String ralc_id, DocumentId document_id,
 			Date birthday, Address address, Birthplace birthplace, String nationality, String sex,
 			ArrayList<Tutor> tutors, FormerStudies former_studies, String languages, String religion,
-			String requirements_profile_id) {
+			String requirements_profile_id, String studentType) {
 		super();
 		this.name = name;
 		this.first_surname = first_surname;
@@ -60,6 +61,7 @@ public class Student {
 		this.languages = languages;
 		this.religion = religion;
 		this.requirements_profile_id = requirements_profile_id;
+		this.studentType = studentType;
 	}
 
 	public Student() {
@@ -235,6 +237,14 @@ public class Student {
 		this.requirements_profile_id = requirements_profile_id;
 	}
 
+	public String getStudentType() {
+		return studentType;
+	}
+
+	public void setStudentType(String studentType) {
+		this.studentType = studentType;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [_id=" + _id + ", name=" + name + ", first_surname=" + first_surname + ", second_surname="
@@ -245,6 +255,5 @@ public class Student {
 				+ ", languages=" + languages + ", religion=" + religion + ", requirements_profile_id="
 				+ requirements_profile_id + "]";
 	}
-	
-	
+
 }

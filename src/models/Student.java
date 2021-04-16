@@ -237,13 +237,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [_id=" + _id + ", name=" + name + ", first_surname=" + first_surname + ", second_surname="
-				+ second_surname + ", email=" + email + ", password=" + password + ", token=" + token + ", phone="
-				+ phone + ", ufs_completed=" + ufs_completed + ", ralc_id=" + ralc_id + ", document_id=" + document_id
-				+ ", birthday=" + birthday + ", address=" + address + ", birthplace=" + birthplace + ", nationality="
-				+ nationality + ", sex=" + sex + ", tutors=" + tutors + ", former_studies=" + former_studies
-				+ ", languages=" + languages + ", religion=" + religion + ", requirements_profile_id="
-				+ requirements_profile_id + "]";
+		return document_id.getId()+" "+name+" "+first_surname+" "+second_surname;
 	}
 	
 	

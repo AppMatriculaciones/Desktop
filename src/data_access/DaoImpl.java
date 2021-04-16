@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import models.Career;
 import models.Mp;
+import models.RequirementsProfile;
 import models.Student;
 import models.Uf;
 
@@ -244,6 +245,63 @@ public class DaoImpl implements DaoI {
 		try {
 			ArrayList<Student> students = (ArrayList<Student>) objectMapper.readValue(body, new TypeReference<List<Student>>() {});
 			return students;
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public Uf getUfById(String ufId) {
+		// TODO Auto-generated method stub
+		String body = GenerateHttpRequest.get("/uf/getbyid/"+ufId);
+		try {
+			Uf uf = objectMapper.readValue(body, Uf.class);
+			return uf;
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public RequirementsProfile getRequirementsProfileById(String id) {
+		// TODO Auto-generated method stub
+		String body = GenerateHttpRequest.get("/requirements_profile/getbyid/"+id);
+		try {
+			RequirementsProfile reqProfile = objectMapper.readValue(body, RequirementsProfile.class);
+			return reqProfile;
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public ArrayList<RequirementsProfile> getRequirementsProfile() {
+		// TODO Auto-generated method stub
+		String body = GenerateHttpRequest.get("/requirements_profile/get");
+		try {
+			ArrayList<RequirementsProfile> reqProfiles = (ArrayList<RequirementsProfile>) objectMapper.readValue(body, new TypeReference<List<RequirementsProfile>>() {});
+			return reqProfiles;
 		} catch (JsonMappingException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Error while converting Json to Object.");

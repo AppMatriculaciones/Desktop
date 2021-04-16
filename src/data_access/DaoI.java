@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import models.Career;
 import models.Mp;
+import models.RequirementsProfile;
 import models.Student;
 import models.Uf;
 
@@ -25,6 +26,8 @@ public interface DaoI {
 	
 	public Uf getUf(String ufCode);
 	
+	public Uf getUfById(String ufId);
+	
 	public ArrayList<Uf> getUfsByMp(String mpCode);
 	
 	public ArrayList<Uf> getUfByCareer(String careerCode);
@@ -34,4 +37,8 @@ public interface DaoI {
 	public ArrayList<Student> getStudentsByCareersCode(String careersCode);
 	
 	public ArrayList<Student> getStudents();
+	
+	public RequirementsProfile getRequirementsProfileById(String id);
+	
+	public ArrayList<RequirementsProfile> getRequirementsProfile();
 }

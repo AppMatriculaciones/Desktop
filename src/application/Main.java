@@ -45,4 +45,5 @@ public class Main extends Application {
 		loadingMessage.getButtonTypes().add(ButtonType.CLOSE);
 		loadingMessage.close();
 	}
+	
 }

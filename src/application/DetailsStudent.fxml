@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="ap" fx:id="ap" prefHeight="703.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DetailsStudentController">
+   <children>
+      <Label id="lblName" fx:id="lblName" layoutX="28.0" layoutY="38.0" text="Nombre" />
+      <Label id="lbFirstSurname" fx:id="lbFirstSurname" layoutX="28.0" layoutY="72.0" text="Primer apellido" />
+      <Label id="lbSecondSurname" fx:id="lbSecondSurname" layoutX="28.0" layoutY="109.0" text="Segundo apellido" />
+      <Label id="lbEmail" fx:id="lbEmail" layoutX="28.0" layoutY="144.0" text="Email" />
+      <Label id="lbPhone" fx:id="lbPhone" layoutX="28.0" layoutY="180.0" text="Telefono" />
+      <Label id="lbRalcId" fx:id="lbRalcId" layoutX="28.0" layoutY="216.0" text="Ralc Id" />
+      <TextField id="tfName" fx:id="tfName" layoutX="136.0" layoutY="34.0" />
+      <TextField id="tfFirstSurname" fx:id="tfFirstSurname" layoutX="136.0" layoutY="68.0" />
+      <TextField id="tfSecondSurname" fx:id="tfSecondSurname" layoutX="136.0" layoutY="105.0" />
+      <TextField id="tfEmail" fx:id="tfEmail" layoutX="136.0" layoutY="140.0" />
+      <TextField id="tfPhone" fx:id="tfPhone" layoutX="136.0" layoutY="176.0" />
+      <TextField id="tfRalcId" fx:id="tfRalcId" layoutX="136.0" layoutY="212.0" />
+      <Label id="lbId" fx:id="lbId" layoutX="329.0" layoutY="38.0" text="ID" />
+      <Label id="lbIdType" fx:id="lbIdType" layoutX="329.0" layoutY="72.0" text="Tipo documento" />
+      <TextField id="tfId" fx:id="tfId" layoutX="373.0" layoutY="33.0" prefHeight="26.0" prefWidth="239.0" />
+      <ComboBox id="cboxIdType" fx:id="cboxIdType" layoutX="436.0" layoutY="67.0" prefHeight="26.0" prefWidth="175.0" />
+      <DatePicker id="calBirthday" fx:id="calBirthday" layoutX="432.0" layoutY="104.0" prefHeight="26.0" prefWidth="182.0" />
+      <Label id="lbBirthday" fx:id="lbBirthday" layoutX="329.0" layoutY="109.0" text="Fecha nacimiento" />
+      <Label id="lbSex" fx:id="lbSex" layoutX="329.0" layoutY="144.0" text="Genero" />
+      <RadioButton id="rdBtnMan" fx:id="rdBtnMan" layoutX="436.0" layoutY="144.0" mnemonicParsing="false" text="Hombre" />
+      <RadioButton id="rdBtnWoman" fx:id="rdBtnWoman" layoutX="524.0" layoutY="144.0" mnemonicParsing="false" text="Mujer" />
+      <Label id="lbCityBirth" fx:id="lbCityBirth" layoutX="327.0" layoutY="180.0" text="Ciudad nacimiento" />
+      <Label id="lbCountryBirth" fx:id="lbCountryBirth" layoutX="327.0" layoutY="216.0" text="Pais nacimiento" />
+      <TextField id="tfBirthCity" fx:id="tfBirthCity" layoutX="443.0" layoutY="176.0" prefHeight="26.0" prefWidth="175.0" />
+      <TextField id="tfBirthCountry" fx:id="tfBirthCountry" layoutX="443.0" layoutY="212.0" prefHeight="26.0" prefWidth="175.0" />
+      <Separator layoutX="23.0" layoutY="264.0" prefHeight="3.0" prefWidth="860.0" />
+      <Label id="lbAddress" fx:id="lbAddress" layoutX="28.0" layoutY="282.0" text="Direccion">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label id="lbType" fx:id="lbType" layoutX="28.0" layoutY="313.0" text="Tipo" />
+      <Label id="lbNameAddress" fx:id="lbNameAddress" layoutX="159.0" layoutY="312.0" text="Nombre" />
+      <Label id="lbNumber" fx:id="lbNumber" layoutX="377.0" layoutY="313.0" text="Numero" />
+      <Label id="lbOthers" fx:id="lbOthers" layoutX="487.0" layoutY="313.0" text="Otros" />
+      <TextField id="tfType" fx:id="tfType" layoutX="75.0" layoutY="308.0" prefHeight="26.0" prefWidth="70.0" />
+      <TextField id="tfNameAddress" fx:id="tfNameAddress" layoutX="210.0" layoutY="308.0" prefHeight="26.0" prefWidth="156.0" />
+      <TextField id="tfNumber" fx:id="tfNumber" layoutX="430.0" layoutY="308.0" prefHeight="26.0" prefWidth="46.0" />
+      <TextField id="tfOthers" fx:id="tfOthers" layoutX="531.0" layoutY="308.0" prefHeight="26.0" prefWidth="133.0" />
+      <Label id="lbState" fx:id="lbState" layoutX="375.0" layoutY="352.0" text="Provincia" />
+      <TextField id="tfState" fx:id="tfState" layoutX="433.0" layoutY="348.0" prefHeight="26.0" prefWidth="134.0" />
+      <Label id="lbCity" fx:id="lbCity" layoutX="675.0" layoutY="313.0" text="Cuidad" />
+      <TextField id="tfCity" fx:id="tfCity" layoutX="728.0" layoutY="307.0" prefHeight="26.0" prefWidth="149.0" />
+      <Label id="lbDistrict" fx:id="lbDistrict" layoutX="24.0" layoutY="353.0" text="Districto" />
+      <TextField id="tfDistrict" fx:id="tfDistrict" layoutX="77.0" layoutY="349.0" prefHeight="26.0" prefWidth="118.0" />
+      <Label id="lbCp" fx:id="lbCp" layoutX="210.0" layoutY="352.0" text="CP" />
+      <Label id="lbCountry" fx:id="lbCountry" layoutX="600.0" layoutY="351.0" text="Pais" />
+      <TextField id="tfCp" fx:id="tfCp" layoutX="249.0" layoutY="349.0" prefHeight="26.0" prefWidth="118.0" />
+      <TextField id="tfCountry" fx:id="tfCountry" layoutX="634.0" layoutY="346.0" prefHeight="26.0" prefWidth="149.0" />
+      <Separator layoutX="23.0" layoutY="405.0" prefHeight="3.0" prefWidth="860.0" />
+      <Label id="lbLenguajes" fx:id="lbLenguajes" layoutX="648.0" layoutY="38.0" text="Idiomas" />
+      <TextField id="tfLenguajes" fx:id="tfLenguajes" layoutX="728.0" layoutY="34.0" prefHeight="26.0" prefWidth="150.0" />
+      <Label id="lbReligion" fx:id="lbReligion" layoutX="647.0" layoutY="81.0" text="Religion" />
+      <TextField id="tfReligion" fx:id="tfReligion" layoutX="729.0" layoutY="77.0" prefHeight="26.0" prefWidth="149.0" />
+      <Label id="lbNationality" fx:id="lbNationality" layoutX="647.0" layoutY="122.0" text="Nacionalidad" />
+      <TextField id="tfNationality" fx:id="tfNationality" layoutX="729.0" layoutY="118.0" />
+      <Label id="lbGeneralData" fx:id="lbGeneralData" layoutX="28.0" layoutY="7.0" text="Datos Generales">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label id="lbOtherData" fx:id="lbOtherData" layoutX="28.0" layoutY="416.0" text="Otros datos">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label id="lbSchoolCode" fx:id="lbSchoolCode" layoutX="30.0" layoutY="477.0" text="Codigo Instituto" />
+      <Label id="lbSchoolName" fx:id="lbSchoolName" layoutX="30.0" layoutY="508.0" text="Nombre Instituto" />
+      <Label id="lbCourseCode" fx:id="lbCourseCode" layoutX="28.0" layoutY="544.0" text="Codigo curso" />
+      <Label id="lbCourseName" fx:id="lbCourseName" layoutX="30.0" layoutY="580.0" text="Nombre curso" />
+      <Label id="lbCourseProc" fx:id="lbCourseProc" layoutX="33.0" layoutY="610.0" text="Proc curso" />
+      <TextField id="tfSchoolCode" fx:id="tfSchoolCode" layoutX="136.0" layoutY="472.0" />
+      <TextField id="tfSchoolName" fx:id="tfSchoolName" layoutX="136.0" layoutY="505.0" />
+      <TextField id="tfCourrseCode" fx:id="tfCourrseCode" layoutX="136.0" layoutY="540.0" />
+      <TextField id="tfCourseName" fx:id="tfCourseName" layoutX="136.0" layoutY="574.0" />
+      <TextField fx:id="tfCourseProc" layoutX="136.0" layoutY="606.0" />
+      <Label id="lbRequirementsProfile" fx:id="lbRequirementsProfile" layoutX="308.0" layoutY="447.0" text="Perfil de requisitos" />
+      <Label id="lbUfsCompleted" fx:id="lbUfsCompleted" layoutX="488.0" layoutY="447.0" text="UFS aprovadas" />
+      <ListView id="listVUfsCompleted" layoutX="487.0" layoutY="474.0" prefHeight="150.0" prefWidth="156.0" />
+      <Label id="lbTutors" fx:id="lbTutors" layoutX="674.0" layoutY="447.0" text="Tutores" />
+      <ListView id="listVTutors" fx:id="listVTutors" layoutX="675.0" layoutY="474.0" prefHeight="150.0" prefWidth="156.0" />
+      <Button id="btnAddTutor" fx:id="btnAddTutor" layoutX="729.0" layoutY="443.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Nuevo" />
+      <Button id="btnDeleteTutor" fx:id="btnDeleteTutor" layoutX="842.0" layoutY="472.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" text="X" />
+      <Button id="btnCancel" fx:id="btnCancel" layoutX="31.0" layoutY="664.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Cancelar" />
+      <Button id="btnSave" fx:id="btnSave" layoutX="786.0" layoutY="665.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Guardar" />
+      <ComboBox id="cboxReqProfile" fx:id="cboxReqProfile" layoutX="308.0" layoutY="472.0" prefWidth="150.0" />
+      <Label id="lbStudiesFormer" fx:id="lbStudiesFormer" layoutX="28.0" layoutY="447.0" text="Estudios prevoios" />
+   </children>
+</AnchorPane>

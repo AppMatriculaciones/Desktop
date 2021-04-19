@@ -41,4 +41,6 @@ public interface DaoI {
 	public RequirementsProfile getRequirementsProfileById(String id);
 	
 	public ArrayList<RequirementsProfile> getRequirementsProfile();
+	
+	public void updateStudentByDocId(Student student);
 }

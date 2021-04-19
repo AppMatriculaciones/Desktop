@@ -3,14 +3,15 @@ package models;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import data_access.CustomDateSerializer;
 
-@JsonIgnoreProperties(value = { "_id" })
 public class Student {
 	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String _id;
 	private String name;
 	private String first_surname;

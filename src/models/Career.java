@@ -3,12 +3,14 @@ package models;
 import java.util.Date;
 import data_access.CustomDateSerializer;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-@JsonIgnoreProperties(value = { "_id" })
+
 public class Career {
 
+	@JsonProperty(access = Access.WRITE_ONLY)
 	String _id;
 	String code;
 	String name;

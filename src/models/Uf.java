@@ -1,10 +1,11 @@
 package models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-@JsonIgnoreProperties(value = { "_id" })
 public class Uf {
 
+	@JsonProperty(access = Access.WRITE_ONLY)
 	String _id;
 	String code;
 	String name;
@@ -107,8 +108,6 @@ public class Uf {
 
 	@Override
 	public String toString() {
-		return "Uf [_id=" + _id + ", code=" + code + ", name=" + name + ", duration=" + duration + ", isProject="
-				+ isProject + ", isSintesis=" + isSintesis + ", isFct=" + isFct + ", isLanguage=" + isLanguage
-				+ ", mp_id=" + mp_id + "]";
+		return code+" "+name;
 	}
 }

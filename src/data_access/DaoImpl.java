@@ -313,4 +313,19 @@ public class DaoImpl implements DaoI {
 		}
 		return null;
 	}
+
+	@Override
+	public void updateStudentByDocId(Student student) {
+		// TODO Auto-generated method stub
+		String body;
+		try {
+			body = objectMapper.writeValueAsString(student);
+			GenerateHttpRequest.put("/student/updatebydocid/"+student.getDocument_id().getId(), body);
+			System.out.println("Student updated");
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Error while parsing Object to Json");
+		}
+	}
 }

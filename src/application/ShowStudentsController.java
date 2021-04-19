@@ -36,8 +36,6 @@ public class ShowStudentsController implements Initializable {
 	
 	protected static ArrayList<Uf> ufs_completed;
 	
-	protected static RequirementsProfile reqProfile;
-	
 	protected static ArrayList<RequirementsProfile> allReqProfiles;
 	
 	private static DaoI daoI = new DaoImpl();
@@ -58,10 +56,6 @@ public class ShowStudentsController implements Initializable {
 		// TODO Auto-generated method stub
 		listVStudents.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 		if(studentsFetched != null) {
-			/*students = new ArrayList<String>();
-			for(Student student: studentsFetched) {
-				students.add(student.getDocument_id().getId()+" "+student.getName()+" "+student.getFirst_surname()+" "+student.getSecond_surname());
-			}*/
 			listStudents = FXCollections.observableArrayList(studentsFetched);
 			listVStudents.setItems(listStudents);
 		}
@@ -125,7 +119,6 @@ public class ShowStudentsController implements Initializable {
 		Optional<ButtonType> result = alert.showAndWait();
 		if (result.get() == btnDetails){
 			ufs_completed = getUfsCompleted(selectedStudent);
-			reqProfile = daoI.getRequirementsProfileById(selectedStudent.getRequirements_profile_id());
 			allReqProfiles = daoI.getRequirementsProfile();
 		    goDetailsStudent();
 		} else if (result.get() == btnDocuments) {

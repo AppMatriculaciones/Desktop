@@ -34,7 +34,7 @@ public class DocumentId {
 
 	@Override
 	public String toString() {
-		return "DocumentId [type=" + type + ", id=" + id + "]";
+		return id;
 	}
 	
 	

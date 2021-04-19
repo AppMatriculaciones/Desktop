@@ -54,9 +54,6 @@ public class Tutor {
 
 	@Override
 	public String toString() {
-		return "Tutor [document_id=" + document_id + ", name=" + name + ", first_surname=" + first_surname
-				+ ", second_surname=" + second_surname + "]";
+		return document_id+" "+name+" "+first_surname+" "+second_surname;
 	}
-	
-	
 }

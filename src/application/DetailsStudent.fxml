@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="ap" fx:id="ap" prefHeight="703.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DetailsStudentController">
    <children>
       <Label id="lblName" fx:id="lblName" layoutX="28.0" layoutY="38.0" text="Nombre" />
@@ -92,13 +91,13 @@
       <TextField fx:id="tfCourseProc" layoutX="136.0" layoutY="606.0" />
       <Label id="lbRequirementsProfile" fx:id="lbRequirementsProfile" layoutX="308.0" layoutY="447.0" text="Perfil de requisitos" />
       <Label id="lbUfsCompleted" fx:id="lbUfsCompleted" layoutX="488.0" layoutY="447.0" text="UFS aprovadas" />
-      <ListView id="listVUfsCompleted" layoutX="487.0" layoutY="474.0" prefHeight="150.0" prefWidth="156.0" />
+      <ListView id="listVUfsCompleted" fx:id="listVUfsCompleted" layoutX="487.0" layoutY="474.0" prefHeight="150.0" prefWidth="156.0" />
       <Label id="lbTutors" fx:id="lbTutors" layoutX="674.0" layoutY="447.0" text="Tutores" />
       <ListView id="listVTutors" fx:id="listVTutors" layoutX="675.0" layoutY="474.0" prefHeight="150.0" prefWidth="156.0" />
-      <Button id="btnAddTutor" fx:id="btnAddTutor" layoutX="729.0" layoutY="443.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Nuevo" />
-      <Button id="btnDeleteTutor" fx:id="btnDeleteTutor" layoutX="842.0" layoutY="472.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="36.0" text="X" />
-      <Button id="btnCancel" fx:id="btnCancel" layoutX="31.0" layoutY="664.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Cancelar" />
-      <Button id="btnSave" fx:id="btnSave" layoutX="786.0" layoutY="665.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Guardar" />
+      <Button id="btnAddTutor" fx:id="btnAddTutor" layoutX="729.0" layoutY="443.0" mnemonicParsing="false" onAction="#addTutor" prefHeight="26.0" prefWidth="100.0" text="Nuevo" />
+      <Button id="btnDeleteTutor" fx:id="btnDeleteTutor" layoutX="842.0" layoutY="472.0" mnemonicParsing="false" onAction="#deleteTutor" prefHeight="26.0" prefWidth="36.0" text="X" />
+      <Button id="btnCancel" fx:id="btnCancel" layoutX="31.0" layoutY="664.0" mnemonicParsing="false" onAction="#goShowStudents" prefHeight="26.0" prefWidth="100.0" text="Cancelar" />
+      <Button id="btnSave" fx:id="btnSave" layoutX="786.0" layoutY="665.0" mnemonicParsing="false" onAction="#saveData" prefHeight="26.0" prefWidth="100.0" text="Guardar" />
       <ComboBox id="cboxReqProfile" fx:id="cboxReqProfile" layoutX="308.0" layoutY="472.0" prefWidth="150.0" />
       <Label id="lbStudiesFormer" fx:id="lbStudiesFormer" layoutX="28.0" layoutY="447.0" text="Estudios prevoios" />
    </children>

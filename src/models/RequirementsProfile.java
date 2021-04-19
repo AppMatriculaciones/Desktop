@@ -2,11 +2,12 @@ package models;
 
 import java.util.ArrayList;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-@JsonIgnoreProperties(value = { "_id" })
 public class RequirementsProfile {
 
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String _id;
 	private String type;
 	private ArrayList<String> requirements = new ArrayList<String>();
@@ -21,6 +22,7 @@ public class RequirementsProfile {
 		this.type = type;
 		this.requirements = requirements;
 	}
+	
 	
 	public String get_id() {
 		return _id;
@@ -48,8 +50,6 @@ public class RequirementsProfile {
 
 	@Override
 	public String toString() {
-		return "RequirementsProfile [_id=" + _id + ", type=" + type + ", requirements=" + requirements + "]";
+		return type;
 	}
-	
-	
 }

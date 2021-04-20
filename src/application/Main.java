@@ -1,5 +1,7 @@
 package application;
 
+import data_access.DaoI;
+import data_access.DaoImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +14,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	public static Stage stage;
 	public static Alert loadingMessage;
+	public static DaoI daoI = new DaoImpl();
+	
 	@Override
 	public void start(Stage firstStage) {
 		try {

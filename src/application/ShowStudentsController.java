@@ -24,6 +24,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import models.Enrollment;
 import models.RequirementsProfile;
 import models.Student;
 import models.Uf;
@@ -37,6 +38,8 @@ public class ShowStudentsController implements Initializable {
 	protected static ArrayList<Uf> ufs_completed;
 	
 	protected static ArrayList<RequirementsProfile> allReqProfiles;
+	
+	protected static Enrollment selectedStudentEnrollment;
 	
 	private static DaoI daoI = new DaoImpl();
 
@@ -109,7 +112,6 @@ public class ShowStudentsController implements Initializable {
 	private void createAlert() {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setHeaderText("Seleccione una opcion:");
-
 		ButtonType btnDetails = new ButtonType("Detalles alumno");
 		ButtonType btnDocuments = new ButtonType("Documentos alumno");
 		ButtonType btnCancel = new ButtonType("Cancelar", ButtonData.CANCEL_CLOSE);
@@ -122,7 +124,8 @@ public class ShowStudentsController implements Initializable {
 			allReqProfiles = daoI.getRequirementsProfile();
 		    goDetailsStudent();
 		} else if (result.get() == btnDocuments) {
-		    
+		    selectedStudentEnrollment = daoI.getEnrollmentByStudentId(selectedStudent);
+		    goDocumentsStudent();
 		} else {
 		    // ... user chose CANCEL or closed the dialog
 		}
@@ -146,6 +149,22 @@ public class ShowStudentsController implements Initializable {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			Main.stage.setScene(scene);
 			Main.stage.setTitle("Detailles alumno");
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void goDocumentsStudent() {
+		AnchorPane root;
+		try {
+			root = (AnchorPane) FXMLLoader.load(getClass().getResource("DocumentsStudent.fxml"));
+			Scene scene = new Scene(root, 800, 600);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Main.stage.setScene(scene);
+			Main.stage.setTitle("Documentos alumno");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

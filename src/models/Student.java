@@ -34,12 +34,13 @@ public class Student {
 	private String languages;
 	private String religion;
 	private String requirements_profile_id;
+	private String student_type;
 	
 	public Student(String name, String first_surname, String second_surname, String email, String password,
 			String token, int phone, ArrayList<String> ufs_completed, String ralc_id, DocumentId document_id,
 			Date birthday, Address address, Birthplace birthplace, String nationality, String sex,
 			ArrayList<Tutor> tutors, FormerStudies former_studies, String languages, String religion,
-			String requirements_profile_id) {
+			String requirements_profile_id, String student_type) {
 		super();
 		this.name = name;
 		this.first_surname = first_surname;
@@ -61,6 +62,7 @@ public class Student {
 		this.languages = languages;
 		this.religion = religion;
 		this.requirements_profile_id = requirements_profile_id;
+		this.student_type = student_type;
 	}
 
 	public Student() {
@@ -234,6 +236,14 @@ public class Student {
 
 	public void setRequirements_profile_id(String requirements_profile_id) {
 		this.requirements_profile_id = requirements_profile_id;
+	}
+
+	public String getStudent_type() {
+		return student_type;
+	}
+
+	public void setStudent_type(String student_type) {
+		this.student_type = student_type;
 	}
 
 	@Override

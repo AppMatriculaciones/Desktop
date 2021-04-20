@@ -8,5 +8,6 @@
       <Button id="btnImportCareers" fx:id="btnImportCareers" layoutX="49.0" layoutY="38.0" mnemonicParsing="false" onAction="#goImportCareers" text="Importar ciclos" />
       <Button id="btnShowCareers" fx:id="btnShowCareers" layoutX="213.0" layoutY="38.0" mnemonicParsing="false" onAction="#goShowCareers" text="Ver Ciclos" />
       <Button id="btnShowStudents" fx:id="btnShowStudents" layoutX="341.0" layoutY="38.0" mnemonicParsing="false" onAction="#goShowStudents" text="Ver estudiantes" />
+      <Button id="btnShowStudents" fx:id="btnImportAlumns" layoutX="48.0" layoutY="115.0" mnemonicParsing="false" onAction="#goImportAlumns" text="Importar Alumnos" />
    </children>
 </AnchorPane>

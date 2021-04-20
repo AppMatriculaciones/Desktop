@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	public static Stage stage;
 	public static Alert loadingMessage;
+
 	@Override
 	public void start(Stage firstStage) {
 		try {
@@ -22,16 +23,16 @@ public class Main extends Application {
 			firstStage.setScene(scene);
 			firstStage.show();
 			stage = firstStage;
-			
-		} catch(Exception e) {
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 	public static void showLoadingMessage() {
 		loadingMessage = new Alert(AlertType.NONE);
 		loadingMessage.setHeight(100);
@@ -40,10 +41,10 @@ public class Main extends Application {
 		loadingMessage.setTitle("");
 		loadingMessage.show();
 	}
-	
+
 	public static void closeLoadingMessage() {
 		loadingMessage.getButtonTypes().add(ButtonType.CLOSE);
 		loadingMessage.close();
 	}
-	
+
 }

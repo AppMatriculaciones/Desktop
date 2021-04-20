@@ -77,5 +77,21 @@ public class MainMenuController implements Initializable {
 		}
 
 	}
+	
+	@FXML
+	private void goImportAlumns() {
+		AnchorPane root;
+		try {
+			root = (AnchorPane) FXMLLoader.load(getClass().getResource("ImportAlumns.fxml"));
+			Scene scene = new Scene(root, 800, 600);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Main.stage.setScene(scene);
+			Main.stage.setTitle("Importar alumnes");
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

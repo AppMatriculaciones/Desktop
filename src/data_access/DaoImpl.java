@@ -37,6 +37,24 @@ public class DaoImpl implements DaoI {
 	}
 
 	@Override
+	public Student createStudent(Student student) {
+		String body;
+		try {
+			body = objectMapper.writeValueAsString(student);
+			String careerId = GenerateHttpRequest.post("/student/create", body);
+			student.set_id(careerId);
+			System.out.println("Student created: ");
+			System.out.println(student.get_id());
+			return student;
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Error while parsing Object to Json");
+		}
+		return null;
+	}
+	
+	@Override
 	public Career getCareer(String careerCode) {
 		String body = GenerateHttpRequest.get("/career/get/"+careerCode);
 		try {

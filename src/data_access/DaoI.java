@@ -43,4 +43,6 @@ public interface DaoI {
 	public ArrayList<RequirementsProfile> getRequirementsProfile();
 	
 	public void updateStudentByDocId(Student student);
+
+	public Student createStudent(Student student);
 }

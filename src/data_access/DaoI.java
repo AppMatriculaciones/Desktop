@@ -3,6 +3,7 @@ package data_access;
 import java.util.ArrayList;
 
 import models.Career;
+import models.Enrollment;
 import models.Mp;
 import models.RequirementsProfile;
 import models.Student;
@@ -45,4 +46,8 @@ public interface DaoI {
 	public void updateStudentByDocId(Student student);
 
 	public Student createStudent(Student student);
+	
+	public Enrollment getEnrollmentByStudentId(Student student);
+	
+	public void updateEnrollmentById(Enrollment enrollment);
 }

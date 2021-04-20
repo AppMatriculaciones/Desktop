@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import models.Career;
+import models.Enrollment;
 import models.Mp;
 import models.RequirementsProfile;
 import models.Student;
@@ -340,6 +341,40 @@ public class DaoImpl implements DaoI {
 			body = objectMapper.writeValueAsString(student);
 			GenerateHttpRequest.put("/student/updatebydocid/"+student.getDocument_id().getId(), body);
 			System.out.println("Student updated");
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("Error while parsing Object to Json");
+		}
+	}
+
+	@Override
+	public Enrollment getEnrollmentByStudentId(Student student) {
+		// TODO Auto-generated method stub
+		String body = GenerateHttpRequest.get("/enrollment/getbystudentid/"+student.get_id());
+		try {
+			Enrollment enrollment = objectMapper.readValue(body, Enrollment.class);
+			return enrollment;
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Error while converting Json to Object.");
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public void updateEnrollmentById(Enrollment enrollment) {
+		// TODO Auto-generated method stub
+		String body;
+		try {
+			body = objectMapper.writeValueAsString(enrollment);
+			GenerateHttpRequest.put("/enrollment/updatebyid/"+enrollment.get_id(), body);
+			System.out.println("Enrollment updated");
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

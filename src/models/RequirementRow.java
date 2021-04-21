@@ -24,7 +24,7 @@ public class RequirementRow {
 	public RequirementRow(Requirement requirement, int index) {
 		super();
 		this.requirement = requirement;
-		this.imageView = new ImageView(new Image("http://localhost:5000/document/get/"+requirement.getPath()));
+		this.imageView = new ImageView(new Image("https://appmatriculacioaaj.herokuapp.com/document/get/"+requirement.getPath()));
 		this.imageView.setFitWidth(200);
 		this.imageView.setPreserveRatio(true);
 		this.btnValidate = new Button("Validar");

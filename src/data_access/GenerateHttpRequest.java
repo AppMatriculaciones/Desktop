@@ -17,7 +17,7 @@ public class GenerateHttpRequest {
 		
 		DefaultHttpClient httpClient = new DefaultHttpClient();
 		url = url.replaceAll(" ", "%20");
-		HttpPost httpPost = new HttpPost("http://localhost:5000"+url);
+		HttpPost httpPost = new HttpPost("https://appmatriculacioaaj.herokuapp.com"+url);
 		httpPost.setHeader("Content-type", "application/json");
 		try {
 			StringEntity stringEntity = new StringEntity(body);
@@ -41,7 +41,7 @@ public class GenerateHttpRequest {
 	public static String get(String url) {
 		DefaultHttpClient httpClient = new DefaultHttpClient();
 		url = url.replaceAll(" ", "%20").replaceAll("&", "%26");
-		HttpGet httpGet = new HttpGet("http://localhost:5000"+url);
+		HttpGet httpGet = new HttpGet("https://appmatriculacioaaj.herokuapp.com"+url);
 		httpGet.setHeader("Content-type", "application/json");
 		try {
 			httpGet.getRequestLine();
@@ -63,7 +63,7 @@ public static String put(String url, String body) {
 		
 		DefaultHttpClient httpClient = new DefaultHttpClient();
 		url = url.replaceAll(" ", "%20");
-		HttpPut httpPut = new HttpPut("http://localhost:5000"+url);
+		HttpPut httpPut = new HttpPut("https://appmatriculacioaaj.herokuapp.com"+url);
 		httpPut.setHeader("Content-type", "application/json");
 		try {
 			StringEntity stringEntity = new StringEntity(body);

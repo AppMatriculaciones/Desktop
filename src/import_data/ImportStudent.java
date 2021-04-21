@@ -36,7 +36,7 @@ public class ImportStudent {
 				st.setFirst_surname(lineSplit[5]);
 				st.setSecond_surname(lineSplit[6]);
 				st.setRalc_id(lineSplit[7]);
-				st.setStudentType(lineSplit[8]);
+				st.setStudent_type(lineSplit[8]);
 
 				// Student Documents
 				DocumentId dc = new DocumentId();

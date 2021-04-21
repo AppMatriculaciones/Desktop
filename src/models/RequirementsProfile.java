@@ -14,7 +14,6 @@ public class RequirementsProfile {
 	
 	public RequirementsProfile() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public RequirementsProfile(String type, ArrayList<String> requirements) {
